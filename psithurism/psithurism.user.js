@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Psithurism.user.js
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Hotkeys for the N-Day Potato Alliance, based on NSBreeze++
 // @author       Somyrion
 // @match        https://www.nationstates.net/*
@@ -27,8 +27,12 @@
 */
 
 /* global $ */
+$.fn.random = function() {
+  return this.eq(Math.floor(Math.random() * this.length));
+}
 
-var facID = "21"; // update when N-Day starts!
+const facID = "21"; // update when N-Day starts!
+
 (function() {
 	var shifted = false;
 	var controlled = false;
@@ -53,7 +57,7 @@ var facID = "21"; // update when N-Day starts!
 			if ($("input,textarea").is(":focus")){
 			// Psithurism will not activate if you are typing in a text field
 				return;
-			}	
+			}
 			// Go Back (<)
 			else if (e.keyCode == 188) {
 				window.history.back();
@@ -114,11 +118,11 @@ var facID = "21"; // update when N-Day starts!
 			else if (e.keyCode == 77) {
 				// if we're on the incoming nukes page
 				if (window.location.href.indexOf("fid="+facID+"/view=incoming") > -1) {
-					// shield the first incoming set in the list
+					// shield a random incoming set in the list
 					if ($('.button[name="defend"]').length > 0) {
-						$('.button[name="defend"]')[0].click();
+						$('.button[name="defend"]').random().click();
 						// any additional code if there's a captcha/additional choice?
-					} 
+					}
 					// reload the page to check for new incoming nukes
 					else {
 						window.location.reload();
@@ -135,15 +139,15 @@ var facID = "21"; // update when N-Day starts!
 				if (window.location.href.indexOf("page=faction") > -1 && window.location.href.indexOf("fid="+facID) <= -1 && window.location.href.indexOf("view=nations") <= -1) {
 					$('a.nukestat-nations')[0].click();
 				}
-				// if on the faction's list of nations, choose the first non-fully-irradiated nation
+				// if on the faction's list of nations, choose a random non-fully-irradiated nation
 				else if (window.location.href.indexOf("page=faction") > -1 && window.location.href.indexOf("fid="+facID) <= -1 && window.location.href.indexOf("view=nations") > -1) {
-					var linkToTarget = $('ol li:not(:has(.nukedestroyedicon)) a')[0].href;
+					var linkToTarget = $('ol li:not(:has(.nukedestroyedicon)) a').random()[0].href;
 					var regexFindNation = /(?<=nation=).*(?=\/page=nukes)/g;
 					var nationToTarget = linkToTarget.match(regexFindNation)[0];
 					window.location.href = "https://www.nationstates.net/nation="+nationToTarget+"/page=nukes?target="+nationToTarget;
 				}
 				// if on the targetting page, calculate the appropriate number of nukes to target
-				else if (window.location.href.indexOf("/nation=") > -1 && window.location.href.indexOf("page=nukes") > -1) {
+				else if (window.location.href.indexOf("?target=") > -1 && window.location.href.indexOf("page=nukes") > -1) {
 					var regexFindNumber = /\d+/g;
 					var alreadyTargeted = parseInt($('.nukestat-targeted').text().match(regexFindNumber)[0]);
 					var alreadyRads = parseInt($('.nukestat-radiation').text().match(regexFindNumber)[0]);
@@ -176,7 +180,7 @@ var facID = "21"; // update when N-Day starts!
 					if ($('.button[name="launch"]').length > 0) {
 						$('.button[name="launch"]')[0].click();
 						// any additional code if there's a captcha/additional choice?
-					} 
+					}
 					// reload the page to check for new incoming nukes
 					else {
 						window.location.reload();
@@ -186,7 +190,7 @@ var facID = "21"; // update when N-Day starts!
 					window.location.href = "https://www.nationstates.net/page=nukes/view=targets";
 				}
 			}
-			// Go to Puppet Login (\) 
+			// Go to Puppet Login (\)
 			else if (e.keyCode == 220) {
 				window.location.href = "https://www.nationstates.net/page=blank/puppetlist";
 			}
