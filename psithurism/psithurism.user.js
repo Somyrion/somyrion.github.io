@@ -118,11 +118,11 @@ const facID = "21"; // update when N-Day starts!
 			else if (e.keyCode == 77) {
 				// if we're on the incoming nukes page
 				if (window.location.href.indexOf("fid="+facID+"/view=incoming") > -1) {
-					// shield the first incoming set in the list
+					// shield a random incoming set in the list
 					if ($('.button[name="defend"]').length > 0) {
-						$('.button[name="defend"]')[0].click();
+						$('.button[name="defend"]').random().click();
 						// any additional code if there's a captcha/additional choice?
-					} 
+					}
 					// reload the page to check for new incoming nukes
 					else {
 						window.location.reload();
