@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Psithurism.user.js
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Hotkeys for the N-Day Potato Alliance, based on NSBreeze++
 // @author       Somyrion
 // @match        https://www.nationstates.net/*
@@ -57,7 +57,7 @@ const facID = "21"; // update when N-Day starts!
 			if ($("input,textarea").is(":focus")){
 			// Psithurism will not activate if you are typing in a text field
 				return;
-			}	
+			}
 			// Go Back (<)
 			else if (e.keyCode == 188) {
 				window.history.back();
@@ -180,7 +180,7 @@ const facID = "21"; // update when N-Day starts!
 					if ($('.button[name="launch"]').length > 0) {
 						$('.button[name="launch"]')[0].click();
 						// any additional code if there's a captcha/additional choice?
-					} 
+					}
 					// reload the page to check for new incoming nukes
 					else {
 						window.location.reload();
@@ -190,7 +190,7 @@ const facID = "21"; // update when N-Day starts!
 					window.location.href = "https://www.nationstates.net/page=nukes/view=targets";
 				}
 			}
-			// Go to Puppet Login (\) 
+			// Go to Puppet Login (\)
 			else if (e.keyCode == 220) {
 				window.location.href = "https://www.nationstates.net/page=blank/puppetlist";
 			}
