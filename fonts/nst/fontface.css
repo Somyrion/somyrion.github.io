@@ -384,3 +384,30 @@
   font-weight: 700;
   font-display: swap;
 }
+
+@font-face {
+    font-family: 'Biko';
+    src: url('./biko/Biko-Bold.woff') format('woff'),
+        url('./biko/Biko-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Biko';
+    src: url('./biko/Bikowoff') format('woff'),
+        url('./biko/Bikottf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Biko';
+    src: url('./biko/Biko-Black.woff') format('woff'),
+        url('./biko/Biko-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
