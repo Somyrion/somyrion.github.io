@@ -396,8 +396,8 @@
 
 @font-face {
     font-family: 'Biko';
-    src: url('./biko/Bikowoff') format('woff'),
-        url('./biko/Bikottf') format('truetype');
+    src: url('./biko/Biko.woff') format('woff'),
+        url('./biko/Biko.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
