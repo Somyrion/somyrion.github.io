@@ -121,7 +121,7 @@ var facID = "21"; // update when N-Day starts!
 					} 
 					// reload the page to check for new incoming nukes
 					else {
-						window.location.reload();
+						window.location.href = "https://www.nationstates.net/page=faction/fid="+facID+"/view=incoming";
 					}
 				}
 				// if we're not on the incoming nukes page
