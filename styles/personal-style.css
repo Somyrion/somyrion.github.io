@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+	.st0{fill:#009cac;}
+	.st1{fill:#7FC34E;}
+	.st2{fill:#3995D2;}
+	.st3{fill:#8D5EA7;}
+	.st4{fill:#FFFFFF;}
+	.st5{font-family:'Source Serif Pro'; font-style:italic;}
+	.st6{font-size:36px;}
+	.st7{font-family:'Source Serif Pro'; font-weight:800; font-style:italic;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st9{font-family:'Fira Sans'; font-weight:300;}
+	.st10{font-size:90px;}
+	
+	rect.gradientrect {
+    fill: #945cbc;
+}
+
+html, body {
+	font-family: 'Fira Sans', sans-serif;
+	color: #444;
+	margin:0;
+}
+
+* {
+	transition: .3s ease-in-out;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+a:hover {
+	color:#fff;
+	text-shadow: 0px 0px 4px #000;
+}
+
+.st1:hover {
+	fill:#009cac;
+}
+.st2:hover {
+	fill:#006db7;
+}
+.st3:hover {
+	fill:#8252a1;
+}
+
+::selection {
+	background: #8252a1fe;
+	color:#fff;
+}
+
+svg {
+    width: 100%;
+}
+
