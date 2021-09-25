@@ -142,11 +142,11 @@ const facID = "1"; // update when N-Day starts!
 			// Perform Targetting (K, K, K, K)
 			else if (e.keyCode == 75) {
 				// if not on the faction's list of nations already, go to it
-				if (window.location.href.indexOf("page=faction") > -1 && window.location.href.indexOf("fid="+facID) <= -1 && window.location.href.indexOf("view=nations") <= -1) {
+				if (window.location.href.indexOf("page=faction") > -1 && window.location.href.indexOf("view=nations") <= -1) {
 					$('a.nukestat-nations')[0].click();
 				}
 				// if on the faction's list of nations, choose a random non-fully-irradiated nation
-				else if (window.location.href.indexOf("page=faction") > -1 && window.location.href.indexOf("fid="+facID) <= -1 && window.location.href.indexOf("view=nations") > -1) {
+				else if (window.location.href.indexOf("page=faction") > -1 && window.location.href.indexOf("view=nations") > -1) {
 					if ($('ol li:not(:has(.nukedestroyedicon)) a').length) {
 						var linkToTarget = $('ol li:not(:has(.nukedestroyedicon)) a').random()[0].href;
 						var regexFindNation = /(?<=nation=).*(?=\/page=nukes)/g;
