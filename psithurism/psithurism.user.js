@@ -23,6 +23,7 @@
 [K*] Perform targetting procedure (from other faction page, choose nation and target it)
 [L*] Launch nukes that are targetted
 [F] Page listing all factions
+[J] Join faction
 
 */
 
@@ -193,6 +194,10 @@ const facID = "1"; // update when N-Day starts!
 			// Go to Puppet Login (\)
 			else if (e.keyCode == 220) {
 				window.location.href = "https://www.nationstates.net/page=blank/puppetlist";
+			}
+			// Join faction (J)
+			else if (e.keyCode == 74) {
+				window.location.href = "https://www.nationstates.net/page=faction/fid=" + facID + "?consider_join_faction=1&join_faction=1";
 			}
 		} //End of Else keylist
 	}); // End of Keyup Function(e)
