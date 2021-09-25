@@ -83,6 +83,9 @@ const facID = "1"; // update when N-Day starts!
 					else if ($('span.fancylike').text().indexOf("Economic") > -1) {
 						$('.button[name="convertproduction"][value^="shield"]').first().trigger('click');
 					}
+					else if ($('span.fancylike').text().indexOf("Intel") > -1) {
+						$('.button[name="convertproduction"][value^="nukes"]').first().trigger('click');
+					}
 				}
 				else {
 					window.location.href = "https://www.nationstates.net/page=nukes/view=production";
@@ -123,6 +126,8 @@ const facID = "1"; // update when N-Day starts!
 					if ($('.button[name="defend"]').length > 0) {
 						$('.button[name="defend"]').random().click();
 						// any additional code if there's a captcha/additional choice?
+					} else if ($('a[href*="view=incoming?start="]').length > 0) {
+						$('a[href*="view=incoming?start="]')[0].click();
 					}
 					// reload the page to check for new incoming nukes
 					else {
@@ -142,10 +147,14 @@ const facID = "1"; // update when N-Day starts!
 				}
 				// if on the faction's list of nations, choose a random non-fully-irradiated nation
 				else if (window.location.href.indexOf("page=faction") > -1 && window.location.href.indexOf("fid="+facID) <= -1 && window.location.href.indexOf("view=nations") > -1) {
-					var linkToTarget = $('ol li:not(:has(.nukedestroyedicon)) a').random()[0].href;
-					var regexFindNation = /(?<=nation=).*(?=\/page=nukes)/g;
-					var nationToTarget = linkToTarget.match(regexFindNation)[0];
-					window.location.href = "https://www.nationstates.net/nation="+nationToTarget+"/page=nukes?target="+nationToTarget;
+					if ($('ol li:not(:has(.nukedestroyedicon)) a').length) {
+						var linkToTarget = $('ol li:not(:has(.nukedestroyedicon)) a').random()[0].href;
+						var regexFindNation = /(?<=nation=).*(?=\/page=nukes)/g;
+						var nationToTarget = linkToTarget.match(regexFindNation)[0];
+						window.location.href = "https://www.nationstates.net/nation="+nationToTarget+"/page=nukes?target="+nationToTarget;
+					} else {
+						$('a[href^="view=nations?start="]')[0].click();
+					}
 				}
 				// if on the targetting page, calculate the appropriate number of nukes to target
 				else if (window.location.href.indexOf("?target=") > -1 && window.location.href.indexOf("page=nukes") > -1) {
