@@ -31,7 +31,7 @@ $.fn.random = function() {
   return this.eq(Math.floor(Math.random() * this.length));
 }
 
-const facID = "21"; // update when N-Day starts!
+const facID = "1"; // update when N-Day starts!
 
 (function() {
 	var shifted = false;
